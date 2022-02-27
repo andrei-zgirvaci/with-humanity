@@ -20,13 +20,13 @@ interface Props extends MarkerObject {
 }
 
 export default function Marker({ $hover, type, description }: Props) {
-  let twColor = 'text-slate-500';
-  let Icon = LocationMarkerIcon;
-  let PopoverComponent = null;
+  let twColor;
+  let Icon;
+  let PopoverComponent;
 
   switch (type) {
     case 'shelter':
-      twColor = 'text-green-500';
+      twColor = 'text-blue-500';
       Icon = HomeIcon;
       PopoverComponent = ShelterPopover;
       break;
@@ -40,11 +40,16 @@ export default function Marker({ $hover, type, description }: Props) {
       Icon = DocumentSearchIcon;
       PopoverComponent = IsMissingPopover;
       break;
+    default:
+      twColor = 'text-red-500';
+      Icon = LocationMarkerIcon;
+      PopoverComponent = ShelterPopover;
+      break;
   }
 
   return (
     <Popover>
-      <Icon className={`h-5 w-5 ${twColor}`} />
+      <Icon className={`h-7 w-7 ${twColor} stroke-1 stroke-slate-900`} />
 
       <Transition
         className="absolute z-10 mt-1"

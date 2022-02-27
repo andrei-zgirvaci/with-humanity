@@ -27,7 +27,7 @@ const Home = ({ markers }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
-        <title>Braindump | Andrei Zgirvaci</title>
+        <title>Live Map | With humanity</title>
       </Head>
 
       <section className="flex-1">

@@ -1,3 +1,5 @@
+import BreakLine from 'components/BreakLine';
+
 interface Props {
   description: string;
 }
@@ -5,11 +7,13 @@ interface Props {
 export default function IsMissingPopover({ description }: Props) {
   return (
     <>
-      <p className="mb-2 text-lg font-bold">Is Missing</p>
+      <p className="mb-2 text-lg font-bold">Missing People</p>
 
       <hr className="mb-4" />
 
-      <pre className="text-xs text-slate-900">{description}</pre>
+      <div className="text-sm text-slate-900">
+        <BreakLine text={description} />
+      </div>
     </>
   );
 }

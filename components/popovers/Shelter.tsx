@@ -1,3 +1,5 @@
+import BreakLine from 'components/BreakLine';
+
 interface Props {
   description: string;
 }
@@ -9,7 +11,9 @@ export default function ShelterPopover({ description }: Props) {
 
       <hr className="mb-4" />
 
-      <pre className="text-xs text-slate-900">{description}</pre>
+      <div className="text-sm text-slate-900">
+        <BreakLine text={description} />
+      </div>
     </>
   );
 }

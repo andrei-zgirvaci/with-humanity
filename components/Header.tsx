@@ -1,15 +1,17 @@
-import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
   return (
     <header>
       <nav className="p-3 grid grid-cols-[1fr_auto_1fr] items-center">
-        <Link href="/">
-          <p>
-            <span className="text-[#0066cc]">With</span>{' '}
-            <span className="text-[#ffcc00]">Humanity</span> ☮️
+        <div className="flex flex-row items-center">
+          <Image src="/images/logo.png" alt="logo" width={24} height={24} />
+
+          <p className="font-bold tracking-wider">
+            <span className="text-[#0066cc] ml-2">WITH</span>{' '}
+            <span className="text-[#ffcc00]">HUMANITY</span>
           </p>
-        </Link>
+        </div>
 
         <div className="flex flex-row items-center"></div>
 
@@ -26,7 +28,6 @@ const Header = () => {
           </button>
         </div>
       </nav>
-      {/* <input placeholder="search" type="text" /> */}
     </header>
   );
 };
