@@ -3,7 +3,6 @@ import 'styles/globals.css';
 import { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import axios from 'axios';
 import { initializeApp } from 'firebase/app';
 
 type NextPageWithLayout = NextPage & {
@@ -25,11 +24,6 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
-
-axios.defaults.baseURL =
-  process.env.NODE_ENV === 'development'
-    ? process.env.API_URL_DEV
-    : process.env.API_URL;
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);

@@ -7,7 +7,7 @@ import { getSiteLayout } from 'components/SiteLayout';
 
 import getMarkers, { MarkerObject } from 'lib/markers';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const markers = await getMarkers();
 
   return {
@@ -15,7 +15,9 @@ export async function getStaticProps() {
   };
 }
 
-const Home = ({ markers }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({
+  markers,
+}: InferGetStaticPropsType<typeof getServerSideProps>) => {
   const defaultProps = {
     center: {
       lat: 50.46372175476692,
