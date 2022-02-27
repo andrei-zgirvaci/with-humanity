@@ -25,6 +25,7 @@
   "include": [
     "ts_node_modules/next-env.d.ts",
     "ts_node_modules/custom-env.d.ts",
+    "ts_node_modules/google-map-react.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],
