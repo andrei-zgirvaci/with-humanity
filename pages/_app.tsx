@@ -1,9 +1,11 @@
 import 'styles/globals.css';
 
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, useEffect } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { initializeApp } from 'firebase/app';
+
+import { init } from 'lib/ga';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -14,7 +16,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: 'nowar-livemap.firebaseapp.com',
   projectId: 'nowar-livemap',
   storageBucket: 'nowar-livemap.appspot.com',
@@ -27,6 +29,10 @@ initializeApp(firebaseConfig);
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
+
+  useEffect(() => {
+    init(process.env.NEXT_PUBLIC_G);
+  }, []);
 
   return getLayout(<Component {...pageProps} />);
 }

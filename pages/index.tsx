@@ -35,7 +35,7 @@ const Home = ({
       <section className="flex-1">
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+            key: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
           }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
