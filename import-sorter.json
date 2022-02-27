@@ -1,0 +1,9 @@
+{
+  "wrappingStyle": "prettier",
+  "groupRules": [
+    ["^(react|react-dom)$", "^next(/|$)", {}],
+    ["^components/", "^styles/"],
+    "^lib/",
+    "^./"
+  ]
+}
