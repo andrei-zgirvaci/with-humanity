@@ -15,7 +15,6 @@ class MyDocument extends Document {
 
           {/* Links*/}
           <link rel="icon" href="/favicon.ico" />
-          <link rel="canonical" href={META.siteUrl}></link>
 
           {/* Meta */}
           <meta
