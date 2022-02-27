@@ -3,6 +3,7 @@ import 'styles/globals.css';
 import { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import axios from 'axios';
 import { initializeApp } from 'firebase/app';
 
 type NextPageWithLayout = NextPage & {
@@ -14,7 +15,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 const firebaseConfig = {
-  apiKey: '',
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: 'nowar-livemap.firebaseapp.com',
   projectId: 'nowar-livemap',
   storageBucket: 'nowar-livemap.appspot.com',
@@ -23,7 +24,12 @@ const firebaseConfig = {
   measurementId: 'G-E1R6X235XR',
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+
+axios.defaults.baseURL =
+  process.env.NODE_ENV === 'development'
+    ? process.env.API_URL_DEV
+    : process.env.API_URL;
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);

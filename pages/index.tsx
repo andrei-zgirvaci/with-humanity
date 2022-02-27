@@ -2,23 +2,26 @@ import type { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import GoogleMapReact from 'google-map-react';
 
+import Marker from 'components/Marker';
 import { getSiteLayout } from 'components/SiteLayout';
 
+import getMarkers, { MarkerObject } from 'lib/markers';
+
 export async function getStaticProps() {
+  const markers = await getMarkers();
+
   return {
-    props: {},
+    props: { markers },
   };
 }
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-const Home = ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({ markers }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const defaultProps = {
     center: {
-      lat: 10.99835602,
-      lng: 77.01502627,
+      lat: 50.46372175476692,
+      lng: 30.529234424870925,
     },
-    zoom: 11,
+    zoom: 6,
   };
 
   return (
@@ -30,16 +33,14 @@ const Home = ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
       <section className="flex-1">
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: '',
+            key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
           }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
-          <AnyReactComponent
-            lat={defaultProps.center.lat}
-            lng={defaultProps.center.lng}
-            text="My Marker"
-          />
+          {markers.map((marker: MarkerObject) => (
+            <Marker key={marker.id} {...marker} />
+          ))}
         </GoogleMapReact>
       </section>
     </>
