@@ -19,16 +19,17 @@
     "paths": {
       "components/*": ["components/*"],
       "styles/*": ["styles/*"],
-      "lib/*": ["lib/*"]
+      "lib/*": ["lib/*"],
+      "utils/*": ["utils/*"]
     }
   },
   "include": [
-    "ts_node_modules/next-env.d.ts",
-    "ts_node_modules/custom-env.d.ts",
-    "ts_node_modules/google-map-react.d.ts",
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "lib/ga.js"
+    "ts_node_modules/custom-env.d.ts",
+    "ts_node_modules/google-map-react.d.ts",
+    "utils/ga.js"
   ],
   "exclude": ["node_modules"]
 }

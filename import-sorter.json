@@ -4,6 +4,7 @@
     ["^(react|react-dom)$", "^next(/|$)", {}],
     ["^components/", "^styles/"],
     "^lib/",
+    "^utils/",
     "^./"
   ]
 }

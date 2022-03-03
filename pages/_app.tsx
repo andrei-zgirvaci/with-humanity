@@ -5,7 +5,7 @@ import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { initializeApp } from 'firebase/app';
 
-import { init } from 'lib/ga';
+import { init } from 'utils/ga';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
